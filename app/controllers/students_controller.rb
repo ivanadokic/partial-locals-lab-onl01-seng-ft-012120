@@ -28,4 +28,9 @@ class StudentsController < ApplicationController
     params.require(:student).permit(:name, :birthday, :hometown)
   end
 
+  def index
+    @students = Student.search(params[:query])
+    render 'index'
+  end
+
 end
